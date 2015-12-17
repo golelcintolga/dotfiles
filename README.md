@@ -10,6 +10,7 @@
   <li>xdotool</li>
   <li>mygtkmenu</li>
   <li>sakura</li>
+  <li>pamixer</li>
 </ol>
 
 <p><img src="http://i64.tinypic.com/65xxqe.jpg" title="source: imgur.com" /></p>
