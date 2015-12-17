@@ -1,0 +1,22 @@
+use_spacer none
+background no
+double_buffer yes
+own_window_class Conky
+own_window_colour 2D77AC #282A2E
+own_window yes
+own_window_type override
+own_window_transparent no
+own_window_hints undecorated below sticky skip_taskbar skip_pager
+use_xft yes
+xftfont Dejavu Sans:size=10:condensed
+alignment mr
+gap_x 0
+gap_y 270
+minimum_size 200 10
+maximum_width 200
+default_color f5f5f5
+default_outline_color black
+draw_shades no
+
+TEXT
+${execpi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=29391119&u=c" -o ~/.cache/weathereng.xml}${exec ~/.dwm/conky/language.py}${goto 26}${execpi 300 cp -f ~/.dwm/conky/images/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}${image ~/.cache/weather.png -p 0,0 -s 16x16}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${goto 45}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
