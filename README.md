@@ -8,6 +8,8 @@
   <li>cmus</li>
   <li>compton</li>
   <li>xdotool</li>
+  <li>mygtkmenu</li>
+  <li>sakura</li>
 </ol>
 
 <p><img src="http://i64.tinypic.com/65xxqe.jpg" title="source: imgur.com" /></p>
