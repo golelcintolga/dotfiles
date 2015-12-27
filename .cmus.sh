@@ -11,9 +11,9 @@ echo "cmus kurulu değil."
 exit
 fi
 
-sinir=50
+sinir=43
 PLAYING=$(cmus-remote -Q | grep status | cut -d " " -f 2-)
-ARTIST=$(cmus-remote -Q | grep -m 1 artist | cut -d " " -f 3-)
+ARTIST=$(cmus-remote -Q 2>/dev/null | grep -v "set" | grep -m 1 artist | cut -d " " -f 3-)
 TITLE=$( cmus-remote -Q 2>/dev/null | grep title | cut -d " " -f 3- )
 STREAM=$(cmus-remote -Q | grep stream | cut -d " " -f 2-)
 FILENAME=$(cmus-remote -Q | grep file | cut -d '/' -f2- --output-delimiter=$'\n' | tail -1)
@@ -39,7 +39,7 @@ else
 			echo  "$font2$play$font3 $STREAM"
 			fi
 		else
-			if [ -z "$ARTIST" ] && [ -z "$TITLE" ];
+			if [ -z "$TITLE" ] && [ -z "$ARTIST" ];
 			then
 				if [ $say3 -gt $sinir ];
 				then
