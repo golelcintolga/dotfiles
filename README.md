@@ -10,4 +10,4 @@
   <li>sakura</li>
 </ol>
 
-<p>https://raw.githubusercontent.com/golelcintolga/dotfiles/master/i3_mpd_ncmpcpp.png</p>
+<p><img src="https://raw.githubusercontent.com/golelcintolga/dotfiles/master/i3_mpd_ncmpcpp.png" /></p>
