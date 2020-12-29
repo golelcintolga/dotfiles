@@ -4,9 +4,9 @@
 
 <h2>Install apps</h2>
 <ol class="task-list">
-  <li>i3</li>
-  <li>polybar</li>
-  <li>mpd and ncmpcpp</li>
+  <li><a href="https://github.com/i3/i3">i3</a></li>
+  <li><a href="https://github.com/polybar/polybar">polybar</a></li>
+  <li><a href="https://github.com/MusicPlayerDaemon/MPD">mpd</a> and <a href="https://github.com/ncmpcpp/ncmpcpp">ncmpcpp</a></li>
   <li>sakura</li>
 </ol>
 
@@ -21,7 +21,6 @@
 <li>dwm-autostart-20200610-cb3f58a.diff</li>
 <li>dwm-bottomstack-6.1.diff</li>
 <li>dwm-centeredmaster-6.1.diff</li>
-<li>dwm-colorbar-6.2.diff</li>
 <li>dwm-fibonacci-6.2.diff</li>
 <li>dwm-layoutmenu-6.2.diff</li>
 <li>dwm-movestack-6.1.diff</li>
