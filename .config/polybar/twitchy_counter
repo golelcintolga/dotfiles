@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+twitchy --non-interactive | awk -F"," '{ print $2 }' | wc -l
