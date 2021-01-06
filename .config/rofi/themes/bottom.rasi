@@ -1,0 +1,14 @@
+configuration {
+	display-drun: "";
+	display-run: "";
+	display-window: "";
+	display-ssh: "~#";
+	show-icons: true;
+	sidebar-mode: false;
+	font: "SauceCodePro NF 13";
+	location: 2;
+	anchor:   2;
+	yoffset: 19;
+}
+
+@import "/home/tolga/.config/rofi/themes/solarized-dark-tg.rasi"
