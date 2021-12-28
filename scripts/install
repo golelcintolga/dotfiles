@@ -8,7 +8,7 @@ destination="/home/tolga/.local/bin"
 
 getIntall(){
 	#
-	# kodların oludupu dizin
+	# kodların oluduğu dizin
 	#
 	scripts="$HOME/Belgeler/scripts"
 	STOW_FOLDERS=(bspwm,genel,pulse,rofi,thunar)
