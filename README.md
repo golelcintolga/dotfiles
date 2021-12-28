@@ -1,4 +1,4 @@
-# dotfiles #bspwm
+# dotfiles
 
 <h1>Personal bspwm</h1>
 
