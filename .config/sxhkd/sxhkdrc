@@ -1,0 +1,17 @@
+# Reload functions
+super + r
+	sakura -e ranger
+super + F2
+  thunar
+alt + p
+  rofi -theme-str 'listview \{ columns: 3; \}' -modi "drun,run,windowcd,window,keys" -show drun
+alt + c
+  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+super + Menu
+  mygtkmenu /home/tolga/.mygtkmenu.txt
+Menu
+ sh /home/tolga/.config/rofi/scripts/rofi-bangs.sh
+super + alt + p
+  python /home/tolga/.config/rofi/scripts/quickeepass.py ~/.sifreler
+super + m
+  alacritty -t Müzik -e ncmpcpp

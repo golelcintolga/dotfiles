@@ -1,0 +1,34 @@
+#!/usr/bin/env zsh
+
+#
+# Hedef dizin
+#
+destination="/home/tolga/.local/bin"
+
+
+getIntall(){
+	#
+	# kodların oludupu dizin
+	#
+	scripts="$HOME/Belgeler/scripts"
+	STOW_FOLDERS=(bspwm,genel,pulse,rofi,thunar)
+	pushd $scripts
+	for folder in $(echo $STOW_FOLDERS | sed "s/,/ /g")
+	do
+		stow -D $folder -t $destination
+		stow -S $folder -t $destination
+	done
+	popd
+}
+
+#
+# -d dizin kontrolü yapılıyor var ise kuruluma geçiliyor
+# yok ise önce dizin oluşturuluyor sonra kuruluma geçiliyor.
+#
+if [ -d $destination ]; then
+	getIntall
+else
+	mkdir $destination
+	getIntall
+	exit 1
+fi

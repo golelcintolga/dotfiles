@@ -63,7 +63,12 @@ window {
 mainbox {
     border:  0;
     padding: 0;
-    children: [message,listview,inputbar];
+    children: [message,horibox,inputbar];
+}
+
+horibox {
+    orientation: horizontal;
+    children:   [ listview ];
 }
 
 message {
@@ -143,7 +148,8 @@ scrollbar {
 }
 
 sidebar {
-    border:       2px 0 0;
+    orientation: vertical;
+    border: 2px 0 0;
     border-color: @separatorcolor;
 }
 
@@ -166,7 +172,12 @@ prompt{
     padding: 0 10px 5px 5px;
     spacing: 0;
     text-color: #D79921;
-    font: "SauceCodePro NF 18";
+    font: "SauceCodePro NF 13";
+}
+
+button{
+font: "SauceCodePro NF 22";
+    width: 42px;
 }
 
 button.selected {

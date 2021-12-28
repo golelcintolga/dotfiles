@@ -1,0 +1,35 @@
+/* Confirm Dialog */
+configuration {
+	display-drun: "";
+	display-run: "";
+	display-window: "";
+	display-ssh: "~#";
+	show-icons: true;
+/*	icon-theme: "Flatery-Dark";*/
+	sidebar-mode: false;
+	font: "Liberation Mono 13";
+	location: 2;
+/*	anchor:   2;*/
+	yoffset: 19;
+}
+
+@import "colors/00color-choice.rasi"
+
+* {
+    scrollbar: false;
+}
+
+window {
+    width:      			360px;
+    padding:    			25px;
+    border:					0px;
+    border-radius:          0px;
+    border-color:           @accent;
+    location:               center;
+    y-offset:               -20px;
+}
+
+entry {
+    expand: 				true;
+    text-color:				@accent;
+}

@@ -1,0 +1,171 @@
+configuration {
+	display-drun: "";
+	show-icons: true;
+/*	icon-theme: "Flatery-Dark";*/
+	sidebar-mode: false;
+	font: "Liberation Mono 13";
+	location: 1;
+/*	anchor:   2;*/
+	yoffset: 25;
+	xoffset: 10;
+}
+
+*{
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+}
+@import "~/.config/rofi/themes/colors/00color-choice.rasi"
+window {
+    border-color: #262626; 
+	border: 2px;
+    padding: 5px;
+    spacing: 0;
+    width: 494px;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+    children: [message,horibox,inputbar];
+}
+
+horibox {
+    orientation: horizontal;
+    border:0;
+    children:   [ listview ];
+}
+
+message {
+    border: 0 0 1 dash;
+    border-color: @separatorcolor;
+    padding:      1px;
+}
+
+textbox {
+    highlight:  @highlight;
+    text-color: @foreground;
+}
+listview {
+    background-color:               @background-alt;
+    columns:                        6;
+    lines:	                        5;
+    spacing:                        0%;
+    cycle:                          false;
+    dynamic:                        false;
+    layout:                         vertical;
+	children: [ element ];
+}
+element {
+    background-color: inherit;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  0%;
+    padding: 4px;
+	margin: 0px;
+	spacing: 0;
+	width: 68px;
+	/* children: [ element-icon ]; */
+}
+
+element-icon {
+    background-color: @gruvbox-dark-bg2;
+	width: 64px;
+    text-color:       				inherit;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    size:                           64px;
+    border:                        1px;
+	border-color: @gruvbox-dark-gray;
+	border-radius: 6px;
+
+	padding: 2px;
+	margin: 2px;
+	spacing: 0;
+}
+
+element-text {
+	enabled: false;
+	background-color: inherit;
+    text-color:       				inherit;
+    expand:                         false;
+    /* horizontal-align:               0.5; */
+    /* vertical-align:                 0.2; */
+    margin: 0px;
+	padding: 0px;
+	width: 0px;
+	height: 0px;
+	size: 0px;
+}
+
+element-icon selected {
+	background-color: @active-background;
+    text-color:                     @foreground;
+	border:							0;
+}
+
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: @scrollbar-handle;
+    handle-width: 8px;
+    padding:      0;
+}
+
+sidebar {
+    orientation: vertical;
+    border: 2px 0 0;
+    border-color: @separatorcolor;
+}
+
+inputbar {
+	background-color: @scrollbar-handle;
+    border: 1px;
+    border-color: @gruvbox-dark-red-dark;
+    spacing: 0;
+    text-color: @normal-foreground;
+    padding:0px;
+	margin: 0 50px;
+    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+}
+
+prompt, textbox-prompt-sep, entry, case-indicator, button {
+    border: 0px;
+	spacing:    0;
+    padding: 5px;
+	text-color: @normal-foreground;
+    /* margin: 3px; */
+}
+
+prompt{
+    padding: 0 20px 0 10px;
+    text-color: #D79921;
+    font: "LiterationMono Nerd Font 14";
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+}
+
+textbox-prompt-sep{
+	enabled: false;
+	padding: 3px 0 0 0;
+}
+
+button{
+	enabled: false;
+font: "Liberation Mono 22";
+    width: 42px;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+textbox-prompt-sep {
+    expand: false;
+    str: ":";
+    text-color: @normal-foreground;
+    margin: 0;
+}
+
+/* vim:ft=css

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cName=$1
+dir=$(pwd)
+echo -n "$dir/${cName}" | xclip -selection clipboard | notify-send "$dir/${cName}"

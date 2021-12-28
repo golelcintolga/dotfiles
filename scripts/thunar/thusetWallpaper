@@ -1,0 +1,8 @@
+#!/bin/bash
+
+WALLPAPERDIR=$(pwd)
+otobaslat=~/.autostart.sh
+
+dunstify $WALLPAPERDIR/$1 &
+feh --bg-fill $WALLPAPERDIR/$1 &
+#sed -i -e 's/arka_resim=.*/arka_resim='$1'/g' $otobaslat

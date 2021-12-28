@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
+# encoding:utf-8
 from pykeepass import PyKeePass
-from pykeepass.exceptions import CredentialsIntegrityError
+from pykeepass.exceptions import CredentialsError
 import subprocess
 import argparse
 import shlex
@@ -22,21 +22,22 @@ password = r.text_entry('Master Password', rofi_args=['-password', '-lines', '0'
 try:
     # load database
     kp = PyKeePass(args.database, password=password)
-except CredentialsIntegrityError as e:
+
+except CredentialsError as e:
     r.exit_with_error('Could not open database')
 
 options = []
 for entry in kp.entries:
-    options.append(entry.title)
+    options.append(entry.url)
 
 index, key = r.select('Name', options, key1=('Alt+1', "Type all"), key2=('Alt+2', "Type user"), key3=('Alt+3', "Type pass"), rofi_args=['-i', '-no-custom'])
 
 if(key == 0):
     # copy password
-    cmd = "echo -n " + shlex.quote(kp.entries[index].password) + " | xclip -selection greenclip"
+    cmd = "echo -n " + shlex.quote(kp.entries[index].password) + " | xclip -selection clipboard"
     subprocess.Popen(cmd,shell=True).communicate()
-    Notification("Will be cleared in 15 seconds", kp.entries[index].title + " copied")
-    subprocess.Popen("sleep 15 && echo -n "" | xclip -selection greenclip", shell=True).communicate()
+#    Notification("Will be cleared in 15 seconds", kp.entries[index].title,"copied")
+    subprocess.Popen("sleep 5 && echo -n " + shlex.quote(kp.entries[index].username) + " | xclip -selection clipboard", shell=True).communicate()
 elif(key == 1):
     # type all
     subprocess.call(["sleep", "0.5"])

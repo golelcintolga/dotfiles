@@ -1,0 +1,71 @@
+#! /bin/sh
+
+wid=$1
+class=$2
+instance=$3
+consequences=$4
+title=$(xdotool getwindowname $wid)
+
+if [ "$instance" = fontforge ] ; then
+	title=$(xtitle "$wid")
+	case "$title" in
+		Layers|Tools|Warning)
+			echo "focus=off"
+			;;
+	esac
+fi
+
+case "$class" in
+	Lutris|Liferea)
+		eval "$consequences"
+		[ "$state" ] || echo "state=pseudo_tiled"
+		;;
+  [Rr]edshift-*|[Tt]int2|[Pp]inentry-*|[Mm]u[Pp][Dd][Ff]|[Ff]im|[Gg]picview|[Nn]itrogen|[Aa]randr|[Gg]alculator|[Ff]ont-manager|[Oo]blogout|[Pp]eek|[Ss]kype|[Xx]fce4-appfinder|[Xx]fce4-about|[Gg]pick|[Gg]mrun|[Xx][Cc]alc|[Pp]avucontrol|[Vv]lc|[Ee]o[mg]|[Ff]eh|[Rr]istretto|[Ss]xiv|[Pp]qiv|[Aa]tril|[Ee]vince|[Zz]athura|scratchpad|fzfmenu|[Gg]itk|[Gg]it-gui|[Ll]eafpad|scrcpy|[Mm]Player)
+    echo "state = floating"
+    echo "center = on"
+    ;;
+
+#     echo "sticky = on"
+#     echo "focus = on"
+#     echo "manage = on"
+#     echo "rectangle = 890x451+0+628"
+#     ;;
+  Google-chrome)
+    echo "desktop = ^2"
+    echo "private = on"
+    echo "follow = on"
+    ;;
+  Opera)
+    echo "desktop = ^3"
+    ;;
+  Gimp)
+   echo "desktop = ^5"
+   ;;
+ Anydesk)
+   echo "desktop = ^4"
+   echo "follow = on"
+   ;;
+ [Tt]elegram*)
+   echo "desktop = ^5"
+   echo "follow = on"
+   echo "focus = on"
+   echo "state = floating"
+   echo "rectangle = 1136x674+418+212"
+   ;;
+ Docky)
+   echo "layer = above"
+   echo "manage = on"
+   echo "border = off"
+   echo "focus = off"
+   echo "locked = on"
+   ;;
+ [Mm]ousepad|[Gg]eany)
+   echo "desktop = ^4"
+   ;;
+esac
+
+case $title in
+  scratchpad|'Terminator Preferences'|'Picture in picture'|[Pp]ulsemixer)
+    echo "state = floating"
+    ;;
+esac

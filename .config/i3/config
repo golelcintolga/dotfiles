@@ -14,29 +14,57 @@ gaps inner  12
 gaps outer  0
 
 default_orientation vertical
-default_border pixel 1
+default_border pixel 2 
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2, title_format " %title "
 #new_window 9pixel
 for_window [class="^.*"] split toggle
 for_window [class="Yad" title="yad-calendar"] floating enable
 #for_window [class="qutebrowser"] floating enable resize set  1024 1000
 for_window [class="Gnome-calculator"] floating enable resize set  500 500
 for_window [class="Gnome-screenshot"] floating enable resize set  700 700
+for_window [class="JDownloader" title="^JDownloader$"] floating enable
+for_window [class="Sakura" title="pulsemixer"] floating enable
+for_window [class="mpv" title="(.*)www.twitch.tv(.*)"] floating enable
+for_window [class="mpv"] border pixel 0
+#for_window [class="mpv"] resize set 600 400
 
-assign [class="qutebrowser"] $ws2
-assign [class="firefox"] $ws2
-assign [class="Geary"] $ws5
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+## Steam
+# https://github.com/ValveSoftware/steam-for-linux/issues/1040
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable    
+for_window [class="Alacritty" title="Download"] floating enable    
+
+
+assign [class="qutebrowser|firefox|Opera"] $ws2
+assign [class="Thunar|Org.gnome.Nautilus"] $ws3
+assign [class="Gedit|Mousepad"] $ws4
+assign [class="Geary|Element|discord"] $ws5
 assign [class="Transmission-gtk"] $ws7
-assign [class="JDownloader 2"] $ws7
-assign [class="muzik"] $ws8
-assign [title="ncmpcpp"] $ws8
+assign [class="JDownloader" title="JDownloader 2"] $ws7
+assign [class="Sakura|Alacritty" title="muzik|Müzik"] $ws8
+assign [class="Rhythmbox"] $ws8
 
 no_focus [window_role="pop-up"]
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:LiterationMono Nerd Font Mono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -72,14 +100,14 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec "sakura --title=sakura"
-bindsym $mod+Ctrl+m exec "sakura --execute='ncmpcpp' --title=muzik"
-bindsym $mod+p exec "rofi -show drun"
-bindsym 0xff67 exec "sh ~/.config/rofi/scripts/rofi-bangs.sh"
-bindsym Mod4+0xff67 exec "mygtkmenu /home/tolga/.mygtkmenu.txt"
-bindsym $mod+c exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
-bindsym Ctrl+r exec "sakura -e ranger"
-bindsym $mod+F2 exec thunar
+bindsym $mod+Shift+Return exec "sakura"
+#bindsym $mod+Ctrl+m exec "sakura --execute='ncmpcpp'"
+#bindsym $mod+p exec "rofi -modi drun,run,window,ssh -show drun"
+#bindsym 0xff67 exec "sh ~/.config/rofi/scripts/rofi-bangs.sh"
+#bindsym Mod4+0xff67 exec "mygtkmenu /home/tolga/.mygtkmenu.txt"
+#bindsym $mod+c exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+#bindsym Ctrl+r exec "sakura -e ranger"
+#bindsym $mod+F2 exec thunar
 bindsym 0x1008ff1d exec gnome-calculator
 bindsym Mod4+Print exec "gnome-screenshot --interactive"
 bindsym $mod+0x1008ff19 exec geary
@@ -147,11 +175,11 @@ bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym Mod4+Shift+p move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym Mod4+p scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -191,14 +219,13 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #002630 #002630 #EBDBB2 #B8BB26   #D79921
-client.focused_inactive #002630 #002630 #E62C1E #002630   #002630
-client.unfocused        #002630 #002630 #1EEE24 #292d2e   #002630
-#client.unfocused        #40CA4D #900000 #ffffff #900000   #900000
+client.focused          #282828 #282828 #EBDBB2 #B8BB26   #262626
+client.focused_inactive #282828 #282828 #E62C1E #282828   #282828
+client.unfocused        #282828 #282828 #1EEE24 #292d2e   #282828
 client.urgent           #40CA4D #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-client.background       #002630
+client.background       #282828
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -244,7 +271,6 @@ mode "$mode_launcher" {
         bindsym Escape mode "default"
 }
 
-
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -260,17 +286,40 @@ mode "$mode_system" {
 }
 bindsym $mod+Pause mode "$mode_system"
 
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 #exec_always --no-startup-id "sh $HOME/.config/i3/autostart.sh"
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec_always --no-startup-id "sh $HOME/.config/polybar/launch.sh"
-exec --no-startup-id "sh $HOME/.config/i3/autostart.sh"
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id "sh $HOME/.config/polybar/launch.sh"
+exec --no-startup-id "sh $HOME/.autostart.sh"
 
+#Gaps mode
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 
-# finds out, if available)
-bar {
-       i3bar_command $HOME/.config/polybar/launch.sh
+bindsym $mod+Shift+g mode "$mode_gaps_outer"
+bindsym $mod+g mode "$mode_gaps_inner"
+
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
 }
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
 
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
 
+        bindsym Return mode "$mode_gaps"
+        bindsym Escape mode "default"
+}

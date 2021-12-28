@@ -12,13 +12,13 @@ while true; do
     if hash notify-send &>/dev/null; then
         if (( UPDATES > 50 )); then
             notify-send -u critical -i $NOTIFY_ICON \
-                "You really need to update!!" "$UPDATES New packages"
+                "Gerçekten güncellemen gerekiyor!!" "$UPDATES Yeni paket"
         elif (( UPDATES > 25 )); then
             notify-send -u normal -i $NOTIFY_ICON \
-                "You should update soon" "$UPDATES New packages"
+                "Yakında güncellemelisin" "$UPDATES Yeni paket"
         elif (( UPDATES > 2 )); then
             notify-send -u low -i $NOTIFY_ICON \
-                "$UPDATES New packages"
+                "$UPDATES Yeni paket"
         fi
     fi
 
@@ -26,13 +26,13 @@ while true; do
     # every 10 seconds another check for updates is done
     while (( UPDATES > 0 )); do
         if (( UPDATES == 1 )); then
-            echo " $UPDATES Update"
+            echo " $UPDATES Güncelleme"
         elif (( UPDATES > 1 )); then
-            echo " $UPDATES Updates"
+            echo " $UPDATES Güncelleme"
         else
             echo $BAR_ICON
         fi
-        sleep 10
+        sleep 1800
         get_total_updates
     done
 
@@ -40,7 +40,7 @@ while true; do
     # and network uptime, only checking once every 30 min for new updates
     while (( UPDATES == 0 )); do
         echo $BAR_ICON
-        sleep 1800
+        sleep 3600  
         get_total_updates
     done
 done

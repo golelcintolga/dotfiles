@@ -1,4 +1,8 @@
-# dotfiles
+# dotfiles #bspwm
+
+<h1>Personal bspwm</h1>
+
+<p><img src="https://raw.githubusercontent.com/golelcintolga/dotfiles/master/screenshot/bspwm2.png" /></p>
 
 <h1>Personal i3 configuration</h1>
 
@@ -10,7 +14,7 @@
   <li>sakura</li>
 </ol>
 
-<p><img src="https://raw.githubusercontent.com/golelcintolga/dotfiles/master/i3_mpd_ncmpcpp.png" /></p>
+<p><img src="https://raw.githubusercontent.com/golelcintolga/dotfiles/master/screenshot/i3_mpd_ncmpcpp.png" /></p>
 
 
 <h1>Dwm configuration</h1>
@@ -32,4 +36,4 @@
 <li>dwm-vanitygaps-20200610-f09418b.diff</li>
 </ol>
 
-<p><img src="https://raw.githubusercontent.com/golelcintolga/dotfiles/master/dwm_blocks_systray.png" /></p>
+<p><img src="https://raw.githubusercontent.com/golelcintolga/dotfiles/master/screenshot/dwm_blocks_systray.png" /></p>

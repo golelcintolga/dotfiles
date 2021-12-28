@@ -1,0 +1,75 @@
+* {
+/* Gruvbox dark colors */
+	dark0-hard: #1D2021;
+	dark0: #282828;
+	dark0-soft: #32302F;
+	dark1: #3c3836;
+	dark2: #504945;
+	dark3: #665c54;
+	dark4: #7C6F64;
+
+	gray-245: #928374;
+	gray-244: #928374;
+
+	light0-hard: #FB4934;
+	light0: #FBF1C7;
+	light0-soft: #F2E5BC;
+	light1: #EBDBB2;
+	light2: #D5C4A1;
+	light3: #BDAE93;
+	light4: #A89984;
+
+	bright-red: #FB4934;
+	bright-green: #B8BB26;
+	bright-yellow: #FABD2F;
+	bright-blue: #83A598;
+	bright-purple: #D3869B;
+	bright-aqua: #8EC07C;
+	bright-orange: #FE8019;
+
+	neutral-red: #CC241D;
+	neutral-green: #98971A;
+	neutral-yellow: #D79921;
+	neutral-blue: #458588;
+	neutral-purple: #B16286;
+	neutral-aqua: #689D6A;
+	neutral-orange: #D65D0E;
+
+	faded-red: #9D0006;
+	faded-green: #79740E;
+	faded-yellow: #B57614;
+	faded-blue: #076678;
+	faded-purple: #8F3F71;
+	faded-aqua: #427B58;
+	faded-orange: #AF3A03;
+
+	/* Theme colors */
+	background:                  @dark0-hard;
+	background-color:            @dark0-soft;
+	foreground:                  @light1;
+	border-color:                @gray-245;
+	separatorcolor:              @dark2;
+	scrollbar-handle:            @dark2;
+
+	normal-background:           @background;
+	normal-foreground:           @foreground;
+	alternate-normal-background: @background;
+	alternate-normal-foreground: @foreground;
+	selected-normal-background:  @neutral-green;
+	selected-normal-foreground:  @dark0-hard;
+
+	active-background:           @faded-yellow;
+	active-foreground:           @background;
+	alternate-active-background: @active-background;
+	alternate-active-foreground: @active-foreground;
+	selected-active-background:  @bright-yellow;
+	selected-active-foreground:  @active-foreground;
+
+	urgent-background:           @faded-red;
+	urgent-foreground:           @background;
+	alternate-urgent-background: @urgent-background;
+	alternate-urgent-foreground: @urgent-foreground;
+	selected-urgent-background:  @bright-red;
+	selected-urgent-foreground:  @urgent-foreground;
+}
+/* vim:ft=css

@@ -3,8 +3,8 @@
 ### Change WALLPAPERDIR to the directory where you store wallpapers
 
 WALLPAPERDIR=~/Resimler/Wallpaper/
-otobaslat=~/.config/i3/autostart.sh
-dwmauto=~/.autostart_dwm.sh
+otobaslat=~/.autostart.sh
+#dwmauto=~/.autostart_dwm.sh
 
 if [ -z $@ ]
 then
@@ -24,7 +24,7 @@ else
 #        wal -i $WALLPAPERDIR${THEMES} > /dev/null
 		feh --bg-fill $WALLPAPERDIR${THEMES} &
 		dunstify $WALLPAPERDIR${THEMES} &
-		sed -i -e 's/arka_resim=.*/arka_resim='$THEMES'/g' $otobaslat &
-		sed -i -e 's/arka_resim=.*/arka_resim='$THEMES'/g' $dwmauto
+		sed -i -e 's/arka_resim=.*/arka_resim='$THEMES'/g' $otobaslat
+#		sed -i -e 's/arka_resim=.*/arka_resim='$THEMES'/g' $dwmauto
     fi
 fi

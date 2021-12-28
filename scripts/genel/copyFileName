@@ -1,0 +1,4 @@
+#!/bin/bash
+cName=$1
+
+echo -n "${cName}" | xclip -selection clipboard | notify-send "${cName}"

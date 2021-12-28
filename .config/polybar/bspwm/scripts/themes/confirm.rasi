@@ -1,0 +1,132 @@
+/* Confirm Dialog */
+
+configuration {
+	display-drun: "";
+	display-run: "";
+	display-window: "";
+	display-ssh: "~#";
+	show-icons: false;
+/*	icon-theme: "Flatery-Dark";*/
+	sidebar-mode: false;
+	font: "Liberation Mono 13";
+	location: 2;
+/*	anchor:   2;*/
+	yoffset: 19;
+}
+
+*{
+background-color: none;
+padding:0;
+margin:0;
+spacing: 0;
+border: 0;
+}
+
+@import "colors/00color-choice.rasi"
+
+window {
+	background-color: @background;
+	border: 2px;
+	border-color: @active-background;
+	width: 435px;
+    padding:    			5px;
+    border-radius:          6px;
+    location:               center;
+    y-offset:               -2em;
+}
+
+mainbox {
+    background-color: inherit;
+    children:                       [ inputbar, listview ];
+    spacing:                       	0;
+    padding:                        0;
+}
+
+inputbar {
+	background-color: inherit;
+    border: 0;
+    spacing:    10;
+    text-color: @normal-foreground;
+    padding:    0px;
+    children:   [ textbox-prompt-colon ];
+}
+
+textbox-prompt-colon {
+	background-color: @background-color;
+    padding: 10px 5px;
+    text-color: #D79921;
+    font: "LiterationMono Nerd Font 16";
+    content: "Emin misiniz?";
+    border-radius: 6px 6px 0 0;
+    horizontal-align: 0.5;
+}
+
+listview {
+    background-color: inherit;
+    padding: 10px;
+    margin: 0;
+    columns:                        1;
+    spacing:                        0;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         horizontal;
+}
+
+element {
+border-radius: 6px; 
+	width: 200px;
+	margin: 5px;
+}
+
+element-text {
+    background-color: @gruvbox-dark-yellow-dark;
+    padding: 10px 10px;
+    vertical-align: 0.5;
+	font: "Liberation Mono 19";
+	horizontal-align: 0.5;
+}
+
+element-text.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+element-text.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+element-text.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+element-text.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+element-text.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+element-text.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+element-text.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+element-text.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+element-text.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}

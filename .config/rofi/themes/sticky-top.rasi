@@ -1,0 +1,185 @@
+configuration {
+	display-drun: "";
+	display-run: "";
+	display-window: "";
+	display-ssh: "~#";
+	show-icons: true;
+/*	icon-theme: "Flatery-Dark";*/
+	sidebar-mode: false;
+	font: "Liberation Mono 13";
+	location: 2;
+/*	anchor:   2;*/
+	yoffset: 19;
+}
+
+*{
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: true;
+    border: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+@import "colors/00color-choice.rasi"
+
+window {
+    border: 0;
+    padding: 0;
+    spacing: 0;
+    width: 100%;
+}
+
+mainbox {
+    border: 0;
+    padding: 0;
+    children: [message,horibox,inputbar];
+}
+
+horibox {
+	background-color: @neutral-red;
+    orientation: horizontal;
+    border:0;
+    children:   [ listview ];
+}
+
+message {
+    border: 0 0 1 dash;
+    border-color: @separatorcolor;
+    padding:      1px;
+}
+
+textbox {
+	background-color: @urgent-background;
+    highlight:  @highlight;
+    text-color: @foreground;
+}
+
+listview {
+	background-color: @background;
+    border: 0;
+    padding: 10px 0;
+    border-color: @separatorcolor;
+    spacing: 0;
+    scrollbar: @scrollbar;
+    lines: 15;
+}
+
+element {
+    border:  0;
+    padding: 0 0 0 20px;
+    margin: 0 15px;
+}
+
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+
+scrollbar {
+    width:        12px;
+    border:       0;
+    handle-color: @selected-normal-background;
+    handle-width: 12px;
+    padding:      0;
+}
+
+sidebar {
+    orientation: vertical;
+    border: 2px 0 0;
+    border-color: @separatorcolor;
+}
+
+inputbar {
+	background-color: @background-color;
+    border: 1px 0 1px 0;
+    border-color: @separatorcolor;
+    spacing:    10;
+    text-color: @normal-foreground;
+    padding:    0px;
+    children:   [ prompt, textbox-prompt-sep, entry, case-indicator, num-filtered-rows ];
+}
+
+prompt, textbox-prompt-sep, entry, case-indicator, button {
+background-color: @background-color;
+    spacing:    0;
+    text-color: @normal-foreground;
+    margin: 0;
+    padding: 5px;
+    vertical-align: 0.5;
+}
+
+prompt{
+    padding: 0 0 0 10px;
+    text-color: #D79921;
+    font: "LiterationMono Nerd Font 14";
+}
+
+textbox-prompt-sep{
+	padding: 3px 0 0 0;
+}
+
+button{
+font: "Liberation Mono 22";
+    width: 42px;
+}
+
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+textbox-prompt-sep {
+    expand: false;
+    str: ":";
+    text-color: @normal-foreground;
+    margin: 0;
+}
+
+num-filtered-rows {
+	margin: 0 20px 0 0;
+	horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+/* vim:ft=css

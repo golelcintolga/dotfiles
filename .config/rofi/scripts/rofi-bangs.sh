@@ -27,17 +27,33 @@ COMMANDS["Wallpaper"]="rofi -modi Wallpaper:~/.config/rofi/scripts/rofi-wal-them
 LABELS["Wallpaper"]=""
 
 # open custom web searches
-COMMANDS["websearch"]="~/.scripts/rofi-scripts-collection/rofi-surfraw-websearch.sh"
+COMMANDS["websearch"]="~/.config/rofi/scripts/dmsearch"
 LABELS["websearch"]=""
+
+COMMANDS["kill"]="~/.config/rofi/scripts/dmkill"
+LABELS["kill"]=""
 
 COMMANDS["twitchy"]="rofi -modi twitchy:~/.config/rofi/scripts/rofi-twitchy -show twitchy"
 LABELS["twitchy"]=""
 
-COMMANDS["Sifreler"]="python ~/.config/rofi/scripts/rofi-keepass.py --database ~/.path/password"
+COMMANDS["Sifreler"]="python ~/.config/rofi/scripts/rofi-keepass.py --database ~/.sifreler"
 LABELS["Sifreler"]=""
+
+COMMANDS["Ekran-Yakala"]="screenshot"
+LABELS["Ekran-Yakala"]=""
+
+COMMANDS["Exit"]="sh ~/.config/polybar/bspwm/scripts/powermenu"
+LABELS["Exit"]=""
+
+COMMANDS["Password"]="python ~/.config/rofi/scripts/quickeepass.py ~/.sifreler"
+LABELS["Password"]=""
 
 COMMANDS["Themes"]="rofi-theme-selector"
 LABELS["Themes"]=""
+
+COMMANDS["Müzik"]="sh ~/.config/rofi/scripts/rofi-music"
+LABELS["Müzik"]=""
+
 # show clipboard history
 # source: https://bitbucket.org/pandozer/rofi-clipboard-manager/overview
 # COMMANDS["clipboard"]='rofi -modi "clipboard:~/.bin/rofi-clipboard-manager/mclip.py menu" -show clipboard && ~/.bin/rofi-clipboard-manager/mclip.py paste'

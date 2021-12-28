@@ -1,0 +1,51 @@
+#! /bin/sh
+killall sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd -c ${HOME}/.config/sxhkd/sxhkdrc_bspwm >> ~/.config/sxhkd/sxhkd.log 2>&1 &
+
+# autostart programs
+
+sh ${HOME}/.autostart.sh &
+
+
+## Bspwm configurations
+bspc monitor -d '1' '2' '3' '4' '5' '6' '7' '8' '9' '10'
+bspc config focus_follows_pointer true
+bspc config border_width 2
+bspc config window_gap 12
+#bspc config automatic_scheme spiral
+bspc config split_ratio 0.5
+bspc config focused_border_color "$BLUE" 
+bspc config normal_border_color "$BLACK"
+bspc config active_border_color "$MAGENTA"
+bspc config presel_feedback_color "$GREEN"
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config paddingless_monocle true
+bspc config single_monocle false
+bspc config top_padding 20
+bspc config right_padding 0
+bspc config bottom_padding 20
+bspc config left_padding 0
+
+bspc rule -a qutebrowser desktop='^2'
+bspc rule -a firefox desktop='^2'
+bspc rule -a Thunar desktop='^3'
+bspc rule -a Geary desktop='^5'
+bspc rule -a Transmission-gtk desktop='^7'
+bspc rule -a JDownloader desktop='^7'
+bspc rule -a Gimp desktop='^8' follow=on
+bspc rule -a Alacritty:*:Müzik desktop='^8'
+bspc rule -a Rhythmbox desktop='^8'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bspc rule -a Alacritty:*:Downloading state=floating
+bspc rule -a Gnome-calculator state=floating
+bspc rule -a Gnome-screenshot state=floating
+bspc rule -a Sakura:*:pulsemixer state=floating
+bspc rule -a mpv split_ratio=0.7
+bspc config external_rules_command "$HOME"/.config/bspwm/external_rules
+
+# panel
+#tint2 -c ${HOME}/.config/tint2/tint2rc
+sh ${HOME}/.config/polybar/launch.sh &

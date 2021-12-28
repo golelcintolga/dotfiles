@@ -1,0 +1,94 @@
+/**
+ * This theme is intended for a 3 items wide menu on a 1920x1080 pixels resolution.
+ * You may have to tweak values such as the window padding if you have a different resolution.
+ */
+
+configuration {
+	font: "Liberation Mono 13";
+	disable-history:                false;
+	sidebar-mode: 					false;
+	show-icons: false;
+	location: 5;
+	yoffset: -30;
+	xoffset: -15;
+	fixed-num-lines: false;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	spacing: 0;
+	border: 0;
+    scrollbar: false;
+}
+
+@import "colors/00color-choice.rasi"
+
+window {
+	background-color: @backgrround;
+	border: 3px;
+    border-color: @separatorcolor;
+    border-radius: 0;
+    padding: 0;
+    spacing: 0;
+    fixed-num-lines: false;
+    fixed-columns: false;
+    line: 1;
+	collumn: 1;
+	fullscreen:                     false;
+	hide-scrollbar: 				true;
+    width: 315px;
+}
+
+mainbox {
+	background-color: inherit;
+    padding: 0;
+    children: [ horibox ];
+}
+
+horibox {
+	background-color: inherit;
+    orientation: horizontal;
+    border:0;
+    children:   [ listview ];
+}
+
+listview {
+	background-color: inherit;
+    border: 0;
+    padding: 10px;
+    border-color: @separatorcolor;
+    columns: 1;
+    spacing: 0;
+    layout: horizontal;
+    fixed-columns: true;
+}
+
+element {
+	background-color: inherit;
+    border: 0;
+    padding: 0;
+    margin: 5px;
+}
+
+element-text {
+	border-color: @background;
+	border:3px;
+	border-radius: 6px;
+	text-color: @foreground;
+	font: "LiterationMono Nerd Font 30";
+    expand: false;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    margin: 0;
+    padding: 20px;
+}
+
+element-text.active,
+element-text.selected {
+  background-color: @active-background;
+  text-color: @background;
+  border-color: @selected-active-background;
+}
+
+/* vim:ft=css

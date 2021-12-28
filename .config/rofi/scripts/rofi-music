@@ -1,0 +1,115 @@
+#!/usr/bin/env bash
+
+RofDmn="rofi -dmenu -i -l 20 -p"
+
+PLAYING=$(mpc --format "" | cut -d '#' -f1 -s | cut -d' ' -f1)
+
+c_stop(){
+	mpc stop
+}
+
+c_pause(){
+	mpc pause
+}
+
+c_play(){
+	mpc play
+}
+
+c_next(){
+ mpc next
+}
+
+c_prev(){
+ mpc prev
+}
+
+song_add(){
+	music="$(mpc listall | ${RofDmn} "Music to play")" || exit 1
+	mpc -q add "$music"
+}
+
+playlist(){
+	music="$(mpc playlist | rofi -dmenu -format d -p "Music to play")" || exit 1
+	mpc play $music
+}
+
+    if [ "$PLAYING" == "[playing]" ]; then
+declare -a destination=( "stop" "pause" "add" "next" "prev" "plist" )
+dest=$(printf '%s\n' "${destination[@]}" | ${RofDmn} '')
+    	case "$dest" in
+        stop) c_stop ;;
+        pause) c_pause ;;
+        next) c_next ;;
+        prev) c_prev ;;
+        plist) playlist ;;
+        add) song_add ;;
+      esac  
+    fi
+    
+    if [ "$PLAYING" == "[paused]" ]||[ -z "$PLAYING" ]; then
+declare -a destination=( "play" "add" "plist" )
+dest=$(printf '%s\n' "${destination[@]}" | ${RofDmn} '')
+      case "$dest" in
+        play) c_play ;;
+        plist) playlist ;;
+        add) song_add ;;
+      esac
+    fi
+    
+
+#help(){
+#    printf "Run dm-music without any arguments for all available music\n
+#    dm-music [options]
+#    -h\tdisplays this help page
+#    -q\tQueue a playlist
+#    -p\tSelect music for the queued playlist\n
+#    ### Some useful mpc command
+#    mpc toggle\t\t\ttoggle between pause and play state
+#    mpc next\t\t\tgo to next track
+#    mpc prev\t\t\tgo to prev track
+#    mpc seekthrough +00:00:10\tseek 10s forward
+#    mpc seekthrough -00:00:10\tseek 10s backward\n"
+#}
+
+#play(){
+#    mpc crop > /dev/null 2>&1
+#    music="$(mpc listall | ${DMENU} "Music to play")" || exit 1
+#    mpc -q add "$music"
+#    mpc del 0 > /dev/null 2>&1
+#    mpc play
+#    mpc repeat on
+#}
+
+#queuePlaylist(){
+#    playlist="$(mpc lsplaylists | ${DMENU} "Your playlists")" || exit 1
+#    mpc -q clear
+#    mpc load "$playlist"
+#    mpc -q play 1
+#    echo "$playlist" > "${HOME}/.cache/current_playlist"
+#}
+
+#currentPlaylist(){
+#    playlist="$(cat "${HOME}/.cache/current_playlist")"
+#    music_list="$(mpc playlist "${playlist}")"
+#    music="$(echo "${music_list}" | ${DMENU} "Music to play")" || exit 1
+#    mpc -q clear
+#    mpc load "${playlist}" > /dev/null 2>&1
+#    mpc play "$(echo "${music_list}" | awk -v pattern="$music" '$0 ~ pattern { print NR; exit }')"
+#}
+
+#noOpt=1
+#declare -a destination=( "h" "q" "p" "*" )
+#dest=$(printf '%s\n' "${destination[@]}" | rofi -dmenu -i -l 20 -p '') 
+##while getopts "hqp" arg 2>/dev/null; do
+#    case "$dest" in
+#        h) help ;;
+#        q) queuePlaylist ;;
+#        p) play ;;
+#        *) printf "invalid option\nType dm-music -h for help\n" ;;
+#    esac
+#    noOpt=0
+##done
+#[ $noOpt = 1 ] && play
+
+

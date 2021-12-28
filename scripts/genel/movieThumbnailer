@@ -1,0 +1,5 @@
+#!/bin/bash
+
+file="${1}"
+
+mtn -c 3 -r 5 -w 1280 -g 8 -D 8 -H -f /usr/share/fonts/TTF/DejaVuSans.ttf -F 847D69:16:/usr/share/fonts/TTF/DejaVuSans.ttf:faffe2:a0a0a4:10 -k 1D2021 "${file}"
